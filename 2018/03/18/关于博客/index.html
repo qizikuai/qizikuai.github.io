@@ -83,7 +83,7 @@
 <meta property="og:type" content="article">
 <meta property="og:title" content="关于博客">
 <meta property="og:url" content="http://yoursite.com/2018/03/18/关于博客/index.html">
-<meta property="og:site_name" content="Qiqikuai">
+<meta property="og:site_name" content="Qizikuai">
 <meta property="og:description" content="开始作为博客的第一篇，就不写心情不写技术啦，聊聊关于博客的这些事儿吧。其实很久之前就一直想弄一个自己的博客站，也用Django自己搭建过一个博客，只不过比较粗糙。前端要学习的东西还是很多的，再加上需要很强的设计功底，设计样式、设计配色、设计动画。所以只是弄了个大概，再加上从北京离开半年，博客工程也就断了，实在是拿不出手。 索性就用人家的框架搭了一个，后续会把简易的搭建过程及后续的博客进阶方法总结出">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:updated_time" content="2018-04-05T02:11:18.000Z">
@@ -108,9 +108,9 @@
       author: '博主'
     },
     algolia: {
-      applicationID: '',
+      applicationID: 'ENSRLEKUPE',
       apiKey: '',
-      indexName: '',
+      indexName: 'dev_qizikuai',
       hits: {"per_page":10},
       labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
     }
@@ -125,7 +125,7 @@
 
 
 
-  <title>关于博客 | Qiqikuai</title>
+  <title>关于博客 | Qizikuai</title>
   
 
 
@@ -155,7 +155,7 @@
     <div class="custom-logo-site-title">
       <a href="/"  class="brand" rel="start">
         <span class="logo-line-before"><i></i></span>
-        <span class="site-title">Qiqikuai</span>
+        <span class="site-title">Qizikuai</span>
         <span class="logo-line-after"><i></i></span>
       </a>
     </div>
@@ -241,9 +241,47 @@
       
 
       
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
+            
+            搜索
+          </a>
+        </li>
+      
     </ul>
   
 
+  
+    <div class="site-search">
+      
+  
+  <div class="algolia-popup popup search-popup">
+    <div class="algolia-search">
+      <div class="algolia-search-input-icon">
+        <i class="fa fa-search"></i>
+      </div>
+      <div class="algolia-search-input" id="algolia-search-input"></div>
+    </div>
+
+    <div class="algolia-results">
+      <div id="algolia-stats"></div>
+      <div id="algolia-hits"></div>
+      <div id="algolia-pagination" class="algolia-pagination"></div>
+    </div>
+
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+  </div>
+
+
+
+
+    </div>
   
 </nav>
 
@@ -281,7 +319,7 @@
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Qiqikuai">
+      <meta itemprop="name" content="Qizikuai">
     </span>
 
     
@@ -509,8 +547,12 @@
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
+              <img class="site-author-image" itemprop="image"
+                src="/images/avatar.gif"
+                alt="Qizikuai" />
+            
               <p class="site-author-name" itemprop="name">Qizikuai</p>
-              <p class="site-description motion-element" itemprop="description">Study</p>
+              <p class="site-description motion-element" itemprop="description">Stay hungry Stay foolish</p>
           </div>
 
           <nav class="site-state motion-element">
@@ -660,6 +702,8 @@
   
 
 
+  
+
 
 
 
@@ -698,6 +742,11 @@
   
   
     <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/canvas-nest/canvas-nest.min.js"></script>
   
 
 
@@ -789,6 +838,19 @@
   
 
 
+
+
+  
+  
+  
+  <link rel="stylesheet" href="/lib/algolia-instant-search/instantsearch.min.css">
+
+  
+  
+  <script src="/lib/algolia-instant-search/instantsearch.min.js"></script>
+  
+
+  <script src="/js/src/algolia-search.js?v=5.1.4"></script>
 
 
 

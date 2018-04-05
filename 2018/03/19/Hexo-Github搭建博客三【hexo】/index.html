@@ -79,17 +79,17 @@
 
 
 
-<meta name="description" content="Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub. Quick">
+<meta name="description" content="Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub. Befor">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Hexo-Github搭建博客三【hexo】">
 <meta property="og:url" content="http://yoursite.com/2018/03/19/Hexo-Github搭建博客三【hexo】/index.html">
-<meta property="og:site_name" content="Qiqikuai">
-<meta property="og:description" content="Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub. Quick">
+<meta property="og:site_name" content="Qizikuai">
+<meta property="og:description" content="Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub. Befor">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-04-05T06:17:18.000Z">
+<meta property="og:updated_time" content="2018-04-05T12:53:03.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Hexo-Github搭建博客三【hexo】">
-<meta name="twitter:description" content="Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub. Quick">
+<meta name="twitter:description" content="Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub. Befor">
 
 
 
@@ -108,9 +108,9 @@
       author: '博主'
     },
     algolia: {
-      applicationID: '',
+      applicationID: 'ENSRLEKUPE',
       apiKey: '',
-      indexName: '',
+      indexName: 'dev_qizikuai',
       hits: {"per_page":10},
       labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
     }
@@ -125,7 +125,7 @@
 
 
 
-  <title>Hexo-Github搭建博客三【hexo】 | Qiqikuai</title>
+  <title>Hexo-Github搭建博客三【hexo】 | Qizikuai</title>
   
 
 
@@ -155,7 +155,7 @@
     <div class="custom-logo-site-title">
       <a href="/"  class="brand" rel="start">
         <span class="logo-line-before"><i></i></span>
-        <span class="site-title">Qiqikuai</span>
+        <span class="site-title">Qizikuai</span>
         <span class="logo-line-after"><i></i></span>
       </a>
     </div>
@@ -241,9 +241,47 @@
       
 
       
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
+            
+            搜索
+          </a>
+        </li>
+      
     </ul>
   
 
+  
+    <div class="site-search">
+      
+  
+  <div class="algolia-popup popup search-popup">
+    <div class="algolia-search">
+      <div class="algolia-search-input-icon">
+        <i class="fa fa-search"></i>
+      </div>
+      <div class="algolia-search-input" id="algolia-search-input"></div>
+    </div>
+
+    <div class="algolia-results">
+      <div id="algolia-stats"></div>
+      <div id="algolia-hits"></div>
+      <div id="algolia-pagination" class="algolia-pagination"></div>
+    </div>
+
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+  </div>
+
+
+
+
+    </div>
   
 </nav>
 
@@ -281,7 +319,7 @@
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Qiqikuai">
+      <meta itemprop="name" content="Qizikuai">
     </span>
 
     
@@ -373,15 +411,93 @@
 
       
         <p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure>
+<h2 id="Before-Start"><a href="#Before-Start" class="headerlink" title="Before Start"></a>Before Start</h2><h3 id="dependent"><a href="#dependent" class="headerlink" title="dependent"></a>dependent</h3><p>Installing Hexo is quite easy. However, you do need to have a couple of other things installed first:</p>
+<p><a href="https://nodejs.org/en/" target="_blank" rel="noopener">· Node.js</a><br><a href="https://git-scm.com" target="_blank" rel="noopener">· Git</a></p>
+<p>If your computer already has these, congratulations! Just install Hexo with npm:</p>
+<h3 id="Install-hexo-安装Hexo"><a href="#Install-hexo-安装Hexo" class="headerlink" title="Install hexo 安装Hexo"></a>Install hexo 安装Hexo</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ npm install -g hexo-cli</span><br></pre></td></tr></table></figure>
+<h2 id="Setup"><a href="#Setup" class="headerlink" title="Setup"></a>Setup</h2><p>Once Hexo is installed, run the following commands to initialise Hexo in the target <folder>.</folder></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ hexo init &lt;folder&gt;</span><br><span class="line">$ <span class="built_in">cd</span> &lt;folder&gt;</span><br><span class="line">$ npm install</span><br></pre></td></tr></table></figure>
+<p>Once initialised, here’s what your project folder will look like:<br>新建完成后，指定文件夹的目录如下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">.</span><br><span class="line">├── _config.yml</span><br><span class="line">├── package.json</span><br><span class="line">├── scaffolds</span><br><span class="line">├── source</span><br><span class="line">|   ├── _drafts</span><br><span class="line">|   └── _posts</span><br><span class="line">└── themes</span><br></pre></td></tr></table></figure>
+<h3 id="config-yml"><a href="#config-yml" class="headerlink" title="_config.yml"></a>_config.yml</h3><p>Site configuration file. You can configure most settings here.<br><strong>网站</strong>的配置信息，你可以在此配置大部分的参数。注意这是<strong>整个网站</strong>的配置信息。</p>
+<h3 id="package-json"><a href="#package-json" class="headerlink" title="package.json"></a>package.json</h3><p>Application data. The EJS, Stylus and Markdown renderers are installed by default. If you want, you can uninstall them later.<br>应用程序的信息。因为Hexo工程相当于Nodejs下的一个应用程序，package.json里记录了这个应用程序的信息，包括依赖的其他库的信息。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  &quot;name&quot;: &quot;hexo-site&quot;,</span><br><span class="line">  &quot;version&quot;: &quot;0.0.0&quot;,</span><br><span class="line">  &quot;private&quot;: true,</span><br><span class="line">  &quot;hexo&quot;: &#123;</span><br><span class="line">    &quot;version&quot;: &quot;&quot;</span><br><span class="line">  &#125;,</span><br><span class="line">  &quot;dependencies&quot;: &#123;</span><br><span class="line">    &quot;hexo&quot;: &quot;^3.0.0&quot;,</span><br><span class="line">    &quot;hexo-generator-archive&quot;: &quot;^0.1.0&quot;,</span><br><span class="line">    &quot;hexo-generator-category&quot;: &quot;^0.1.0&quot;,</span><br><span class="line">    &quot;hexo-generator-index&quot;: &quot;^0.1.0&quot;,</span><br><span class="line">    &quot;hexo-generator-tag&quot;: &quot;^0.1.0&quot;,</span><br><span class="line">    &quot;hexo-renderer-ejs&quot;: &quot;^0.1.0&quot;,</span><br><span class="line">    &quot;hexo-renderer-stylus&quot;: &quot;^0.2.0&quot;,</span><br><span class="line">    &quot;hexo-renderer-marked&quot;: &quot;^0.2.4&quot;,</span><br><span class="line">    &quot;hexo-server&quot;: &quot;^0.1.2&quot;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h3 id="scaffolds"><a href="#scaffolds" class="headerlink" title="scaffolds"></a>scaffolds</h3><p>Scaffold folder. When you create a new post, Hexo bases the new file on the scaffold.<br>脚本 文件夹。脚本是扩展 Hexo 最简易的方式，在此文件夹内的 JavaScript 文件会被自动执行。</p>
+<h3 id="source"><a href="#source" class="headerlink" title="source"></a>source</h3><p>Source folder. This is where you put your site’s content. Hexo ignores hidden files and files or folders whose names are prefixed with _ (underscore) - except the _posts folder. Renderable files (e.g. Markdown, HTML) will be processed and put into the public folder, while other files will simply be copied.<br>资源文件夹。这是存放你的资源的地方。除 _posts 文件夹之外，开头命名为 _ (下划线)的文件 / 文件夹和隐藏的文件将会被忽略。Markdown 和 HTML 文件会被解析并放到 public 文件夹，而其他文件会被拷贝过去。</p>
+<h3 id="themes"><a href="#themes" class="headerlink" title="themes"></a>themes</h3><p>Theme folder. Hexo generates a static website by combining the site contents with the theme.<br>主题 文件夹。Hexo 会根据主题来生成静态页面。</p>
+<h2 id="Commands-命令"><a href="#Commands-命令" class="headerlink" title="Commands  命令"></a>Commands  命令</h2><h3 id="init-hexo-webside-初始化站"><a href="#init-hexo-webside-初始化站" class="headerlink" title="init hexo webside 初始化站"></a>init hexo webside 初始化站</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo init [folder]</span><br></pre></td></tr></table></figure>
+<p>初始化一个站。如果没有设置 folder ，Hexo 默认在当前的目录下建立网站。</p>
+<h3 id="Create-a-new-post-创建新文章"><a href="#Create-a-new-post-创建新文章" class="headerlink" title="Create a new post 创建新文章"></a>Create a new post 创建新文章</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure>
 <p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="noopener">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
+<h3 id="Run-server-运行"><a href="#Run-server-运行" class="headerlink" title="Run server 运行"></a>Run server 运行</h3><p>Hexo 3.0 把服务器独立成了个别模块，您必须先安装 hexo-server 才能使用。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ npm install hexo-server --save</span><br></pre></td></tr></table></figure>
+<p> Run server</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
 <p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="noopener">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
+<h3 id="Generate-static-files-构建静态页面"><a href="#Generate-static-files-构建静态页面" class="headerlink" title="Generate static files 构建静态页面"></a>Generate static files 构建静态页面</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
 <p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="noopener">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
+<h3 id="Deploy-to-remote-sites-部署到远程库"><a href="#Deploy-to-remote-sites-部署到远程库" class="headerlink" title="Deploy to remote sites 部署到远程库"></a>Deploy to remote sites 部署到远程库</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
 <p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="noopener">Deployment</a></p>
-<p>hexo –debug</p>
+<h3 id="Debug-mode-调试模式"><a href="#Debug-mode-调试模式" class="headerlink" title="Debug mode  调试模式"></a>Debug mode  调试模式</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo --debug</span><br></pre></td></tr></table></figure>
+<h3 id="clean-清理缓存db-json-和-构建的public下的文件"><a href="#clean-清理缓存db-json-和-构建的public下的文件" class="headerlink" title="clean  清理缓存db.json 和 构建的public下的文件"></a>clean  清理缓存db.json 和 构建的public下的文件</h3><p>Cleans the cache file (db.json) and generated files (public).</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo clean</span><br></pre></td></tr></table></figure>
+<h2 id="Front-matter"><a href="#Front-matter" class="headerlink" title="Front-matter"></a>Front-matter</h2><h3 id="Settings-amp-Their-Default-Values"><a href="#Settings-amp-Their-Default-Values" class="headerlink" title="Settings &amp; Their Default Values"></a>Settings &amp; Their Default Values</h3><table>
+<thead>
+<tr>
+<th style="text-align:center">参数</th>
+<th style="text-align:center">描述</th>
+<th style="text-align:center">默认值</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">layout</td>
+<td style="text-align:center">布局</td>
+<td style="text-align:center">-</td>
+</tr>
+<tr>
+<td style="text-align:center">title</td>
+<td style="text-align:center">标题</td>
+<td style="text-align:center">-</td>
+</tr>
+<tr>
+<td style="text-align:center">date</td>
+<td style="text-align:center">建立日期</td>
+<td style="text-align:center">文件建立日期</td>
+</tr>
+<tr>
+<td style="text-align:center">updated</td>
+<td style="text-align:center">更新日期</td>
+<td style="text-align:center">文件更新日期</td>
+</tr>
+<tr>
+<td style="text-align:center">comments</td>
+<td style="text-align:center">开启文章的评论功能</td>
+<td style="text-align:center">true</td>
+</tr>
+<tr>
+<td style="text-align:center">tags</td>
+<td style="text-align:center">标签（不适用于分页）</td>
+<td style="text-align:center">-</td>
+</tr>
+<tr>
+<td style="text-align:center">categories</td>
+<td style="text-align:center">分类（不适用于分页）</td>
+<td style="text-align:center">-</td>
+</tr>
+<tr>
+<td style="text-align:center">permalink</td>
+<td style="text-align:center">覆盖文章网址</td>
+<td style="text-align:center">-</td>
+</tr>
+</tbody>
+</table>
+<h3 id="Categories-amp-Tags"><a href="#Categories-amp-Tags" class="headerlink" title="Categories &amp; Tags"></a>Categories &amp; Tags</h3><p>Only posts support the use of categories and tags. Categories apply to posts in order, resulting in a hierarchy of classifications and sub-classifications. Tags are all defined on the same hierarchical level so the order in which they appear is not important.<br>只有文章支持分类和标签，分类具有层级概念，标签没有层级概念，<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">categories:</span><br><span class="line">- Sports</span><br><span class="line">- Baseball</span><br><span class="line">tags:</span><br><span class="line">- Injury</span><br><span class="line">- Fight</span><br><span class="line">- Shocking</span><br></pre></td></tr></table></figure></p>
+<p>If you want to apply multiple category hierarchies, use a list of names instead of a single name. If Hexo sees any categories defined this way on a post, it will treat each category for that post as its own independent hierarchy.</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">categories:</span><br><span class="line">- [Sports, Baseball]</span><br><span class="line">- [MLB, American League, Boston Red Sox]</span><br><span class="line">- [MLB, American League, New York Yankees]</span><br><span class="line">- Rivalries</span><br></pre></td></tr></table></figure>
+<h2 id="more-and-thanks"><a href="#more-and-thanks" class="headerlink" title="more and thanks"></a>more and thanks</h2><ul>
+<li><a href="https://hexo.io/docs/index.html" target="_blank" rel="noopener">https://hexo.io/docs/index.html</a></li>
+<li><a href="http://wiki.jikexueyuan.com/project/hexo-document/" target="_blank" rel="noopener">http://wiki.jikexueyuan.com/project/hexo-document/</a></li>
+</ul>
 
       
     </div>
@@ -494,8 +610,12 @@
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
+              <img class="site-author-image" itemprop="image"
+                src="/images/avatar.gif"
+                alt="Qizikuai" />
+            
               <p class="site-author-name" itemprop="name">Qizikuai</p>
-              <p class="site-description motion-element" itemprop="description">Study</p>
+              <p class="site-description motion-element" itemprop="description">Stay hungry Stay foolish</p>
           </div>
 
           <nav class="site-state motion-element">
@@ -560,7 +680,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Quick-Start"><span class="nav-number">1.</span> <span class="nav-text">Quick Start</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Create-a-new-post"><span class="nav-number">1.1.</span> <span class="nav-text">Create a new post</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Run-server"><span class="nav-number">1.2.</span> <span class="nav-text">Run server</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Generate-static-files"><span class="nav-number">1.3.</span> <span class="nav-text">Generate static files</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Deploy-to-remote-sites"><span class="nav-number">1.4.</span> <span class="nav-text">Deploy to remote sites</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Before-Start"><span class="nav-number">1.</span> <span class="nav-text">Before Start</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#dependent"><span class="nav-number">1.1.</span> <span class="nav-text">dependent</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Install-hexo-安装Hexo"><span class="nav-number">1.2.</span> <span class="nav-text">Install hexo 安装Hexo</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Setup"><span class="nav-number">2.</span> <span class="nav-text">Setup</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#config-yml"><span class="nav-number">2.1.</span> <span class="nav-text">_config.yml</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#package-json"><span class="nav-number">2.2.</span> <span class="nav-text">package.json</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#scaffolds"><span class="nav-number">2.3.</span> <span class="nav-text">scaffolds</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#source"><span class="nav-number">2.4.</span> <span class="nav-text">source</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#themes"><span class="nav-number">2.5.</span> <span class="nav-text">themes</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Commands-命令"><span class="nav-number">3.</span> <span class="nav-text">Commands  命令</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#init-hexo-webside-初始化站"><span class="nav-number">3.1.</span> <span class="nav-text">init hexo webside 初始化站</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Create-a-new-post-创建新文章"><span class="nav-number">3.2.</span> <span class="nav-text">Create a new post 创建新文章</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Run-server-运行"><span class="nav-number">3.3.</span> <span class="nav-text">Run server 运行</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Generate-static-files-构建静态页面"><span class="nav-number">3.4.</span> <span class="nav-text">Generate static files 构建静态页面</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Deploy-to-remote-sites-部署到远程库"><span class="nav-number">3.5.</span> <span class="nav-text">Deploy to remote sites 部署到远程库</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Debug-mode-调试模式"><span class="nav-number">3.6.</span> <span class="nav-text">Debug mode  调试模式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#clean-清理缓存db-json-和-构建的public下的文件"><span class="nav-number">3.7.</span> <span class="nav-text">clean  清理缓存db.json 和 构建的public下的文件</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Front-matter"><span class="nav-number">4.</span> <span class="nav-text">Front-matter</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Settings-amp-Their-Default-Values"><span class="nav-number">4.1.</span> <span class="nav-text">Settings &amp; Their Default Values</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Categories-amp-Tags"><span class="nav-number">4.2.</span> <span class="nav-text">Categories &amp; Tags</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#more-and-thanks"><span class="nav-number">5.</span> <span class="nav-text">more and thanks</span></a></li></ol></div>
             
 
           </div>
@@ -645,6 +765,8 @@
   
 
 
+  
+
 
 
 
@@ -683,6 +805,11 @@
   
   
     <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/canvas-nest/canvas-nest.min.js"></script>
   
 
 
@@ -774,6 +901,19 @@
   
 
 
+
+
+  
+  
+  
+  <link rel="stylesheet" href="/lib/algolia-instant-search/instantsearch.min.css">
+
+  
+  
+  <script src="/lib/algolia-instant-search/instantsearch.min.js"></script>
+  
+
+  <script src="/js/src/algolia-search.js?v=5.1.4"></script>
 
 
 

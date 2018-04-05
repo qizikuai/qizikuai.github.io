@@ -84,7 +84,7 @@
 <meta property="og:type" content="article">
 <meta property="og:title" content="关于健身">
 <meta property="og:url" content="http://yoursite.com/2018/03/19/关于健身/index.html">
-<meta property="og:site_name" content="Qiqikuai">
+<meta property="og:site_name" content="Qizikuai">
 <meta property="og:description" content="开始我几乎每天都会去刷一下朋友圈，看看自己的朋友都晒啥东西，秀恩爱的、晒孩儿的、代购、好吃的，干啥的都有，于是感叹大家的生活真是丰富啊。突然看到朋友圈有晒肌肉的，看到别提有多眼馋了！ 有一天我跟章鱼星老哥聊天，那个时候他就是一个坚持健身5年多的老司机了。跟他聊天也让我对健身充满了憧憬，也暗暗下定决心开始健身，虽然不至于变成一个肌肉侠，但是身材单薄，没有看点的我，还是有那么一点点的自卑。我也是突然地">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:updated_time" content="2018-03-20T14:19:55.000Z">
@@ -109,9 +109,9 @@
       author: '博主'
     },
     algolia: {
-      applicationID: '',
+      applicationID: 'ENSRLEKUPE',
       apiKey: '',
-      indexName: '',
+      indexName: 'dev_qizikuai',
       hits: {"per_page":10},
       labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
     }
@@ -126,7 +126,7 @@
 
 
 
-  <title>关于健身 | Qiqikuai</title>
+  <title>关于健身 | Qizikuai</title>
   
 
 
@@ -156,7 +156,7 @@
     <div class="custom-logo-site-title">
       <a href="/"  class="brand" rel="start">
         <span class="logo-line-before"><i></i></span>
-        <span class="site-title">Qiqikuai</span>
+        <span class="site-title">Qizikuai</span>
         <span class="logo-line-after"><i></i></span>
       </a>
     </div>
@@ -242,9 +242,47 @@
       
 
       
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
+            
+            搜索
+          </a>
+        </li>
+      
     </ul>
   
 
+  
+    <div class="site-search">
+      
+  
+  <div class="algolia-popup popup search-popup">
+    <div class="algolia-search">
+      <div class="algolia-search-input-icon">
+        <i class="fa fa-search"></i>
+      </div>
+      <div class="algolia-search-input" id="algolia-search-input"></div>
+    </div>
+
+    <div class="algolia-results">
+      <div id="algolia-stats"></div>
+      <div id="algolia-hits"></div>
+      <div id="algolia-pagination" class="algolia-pagination"></div>
+    </div>
+
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+  </div>
+
+
+
+
+    </div>
   
 </nav>
 
@@ -282,7 +320,7 @@
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Qiqikuai">
+      <meta itemprop="name" content="Qizikuai">
     </span>
 
     
@@ -510,8 +548,12 @@
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
+              <img class="site-author-image" itemprop="image"
+                src="/images/avatar.gif"
+                alt="Qizikuai" />
+            
               <p class="site-author-name" itemprop="name">Qizikuai</p>
-              <p class="site-description motion-element" itemprop="description">Study</p>
+              <p class="site-description motion-element" itemprop="description">Stay hungry Stay foolish</p>
           </div>
 
           <nav class="site-state motion-element">
@@ -661,6 +703,8 @@
   
 
 
+  
+
 
 
 
@@ -699,6 +743,11 @@
   
   
     <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/canvas-nest/canvas-nest.min.js"></script>
   
 
 
@@ -790,6 +839,19 @@
   
 
 
+
+
+  
+  
+  
+  <link rel="stylesheet" href="/lib/algolia-instant-search/instantsearch.min.css">
+
+  
+  
+  <script src="/lib/algolia-instant-search/instantsearch.min.js"></script>
+  
+
+  <script src="/js/src/algolia-search.js?v=5.1.4"></script>
 
 
 

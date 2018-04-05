@@ -84,7 +84,7 @@
 <meta property="og:type" content="article">
 <meta property="og:title" content="Hexo-Github搭建博客一【搭建起来】">
 <meta property="og:url" content="http://yoursite.com/2018/03/18/Hexo-Github搭建博客一【搭建起来】/index.html">
-<meta property="og:site_name" content="Qiqikuai">
+<meta property="og:site_name" content="Qizikuai">
 <meta property="og:description" content="技术选择 GithubGitNodejsHexo  都是封装好的在开始各种安装之前，最好还是简单的理解一下各个部分是干什么用的，要不一会安装这个一会安装那个，这种迷迷糊糊不受控制的感觉可能并不是太好，只有先从整体上了解它，才能对各个部分有一个把控，这也是我一直践行的一个方法论，先整体后局部。  Github :代码托管的地方，以这个博客工程为例，我们写的博客最后生成的是静态页面html文件，这些静">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:updated_time" content="2018-04-05T06:18:14.000Z">
@@ -109,9 +109,9 @@
       author: '博主'
     },
     algolia: {
-      applicationID: '',
+      applicationID: 'ENSRLEKUPE',
       apiKey: '',
-      indexName: '',
+      indexName: 'dev_qizikuai',
       hits: {"per_page":10},
       labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
     }
@@ -126,7 +126,7 @@
 
 
 
-  <title>Hexo-Github搭建博客一【搭建起来】 | Qiqikuai</title>
+  <title>Hexo-Github搭建博客一【搭建起来】 | Qizikuai</title>
   
 
 
@@ -156,7 +156,7 @@
     <div class="custom-logo-site-title">
       <a href="/"  class="brand" rel="start">
         <span class="logo-line-before"><i></i></span>
-        <span class="site-title">Qiqikuai</span>
+        <span class="site-title">Qizikuai</span>
         <span class="logo-line-after"><i></i></span>
       </a>
     </div>
@@ -242,9 +242,47 @@
       
 
       
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
+            
+            搜索
+          </a>
+        </li>
+      
     </ul>
   
 
+  
+    <div class="site-search">
+      
+  
+  <div class="algolia-popup popup search-popup">
+    <div class="algolia-search">
+      <div class="algolia-search-input-icon">
+        <i class="fa fa-search"></i>
+      </div>
+      <div class="algolia-search-input" id="algolia-search-input"></div>
+    </div>
+
+    <div class="algolia-results">
+      <div id="algolia-stats"></div>
+      <div id="algolia-hits"></div>
+      <div id="algolia-pagination" class="algolia-pagination"></div>
+    </div>
+
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+  </div>
+
+
+
+
+    </div>
   
 </nav>
 
@@ -282,7 +320,7 @@
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Qiqikuai">
+      <meta itemprop="name" content="Qizikuai">
     </span>
 
     
@@ -561,8 +599,12 @@
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
+              <img class="site-author-image" itemprop="image"
+                src="/images/avatar.gif"
+                alt="Qizikuai" />
+            
               <p class="site-author-name" itemprop="name">Qizikuai</p>
-              <p class="site-description motion-element" itemprop="description">Study</p>
+              <p class="site-description motion-element" itemprop="description">Stay hungry Stay foolish</p>
           </div>
 
           <nav class="site-state motion-element">
@@ -712,6 +754,8 @@
   
 
 
+  
+
 
 
 
@@ -750,6 +794,11 @@
   
   
     <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/canvas-nest/canvas-nest.min.js"></script>
   
 
 
@@ -841,6 +890,19 @@
   
 
 
+
+
+  
+  
+  
+  <link rel="stylesheet" href="/lib/algolia-instant-search/instantsearch.min.css">
+
+  
+  
+  <script src="/lib/algolia-instant-search/instantsearch.min.js"></script>
+  
+
+  <script src="/js/src/algolia-search.js?v=5.1.4"></script>
 
 
 

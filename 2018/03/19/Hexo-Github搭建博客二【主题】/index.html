@@ -79,18 +79,18 @@
 
 
 
-<meta name="description" content="#主题的使用 ##next 感谢 http://theme-next.iissnan.com/">
+<meta name="description" content="开始在Hexo-Themes选了好久，最后选了nexT主题，刚开始以为选了主题之后就只能用这个了，但是后来配置完之后发现，并不是这样的，我们的的主要精力是写.md文件。而里面除了Markdown以外的部分都是Hexo的规范，主题是另一个独立的东西，它决定了页面的样式，但是它跟实际的文章并没有太强的耦合，可以说他们是独立的部分，想要换主题的话，只需要下载一个，然后配置一下就好，以前的文章是不需要有改">
 <meta name="keywords" content="hexo-nexT">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Hexo-Github搭建博客二【主题】">
 <meta property="og:url" content="http://yoursite.com/2018/03/19/Hexo-Github搭建博客二【主题】/index.html">
-<meta property="og:site_name" content="Qiqikuai">
-<meta property="og:description" content="#主题的使用 ##next 感谢 http://theme-next.iissnan.com/">
+<meta property="og:site_name" content="Qizikuai">
+<meta property="og:description" content="开始在Hexo-Themes选了好久，最后选了nexT主题，刚开始以为选了主题之后就只能用这个了，但是后来配置完之后发现，并不是这样的，我们的的主要精力是写.md文件。而里面除了Markdown以外的部分都是Hexo的规范，主题是另一个独立的东西，它决定了页面的样式，但是它跟实际的文章并没有太强的耦合，可以说他们是独立的部分，想要换主题的话，只需要下载一个，然后配置一下就好，以前的文章是不需要有改">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-04-05T06:21:45.000Z">
+<meta property="og:updated_time" content="2018-04-05T14:22:08.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Hexo-Github搭建博客二【主题】">
-<meta name="twitter:description" content="#主题的使用 ##next 感谢 http://theme-next.iissnan.com/">
+<meta name="twitter:description" content="开始在Hexo-Themes选了好久，最后选了nexT主题，刚开始以为选了主题之后就只能用这个了，但是后来配置完之后发现，并不是这样的，我们的的主要精力是写.md文件。而里面除了Markdown以外的部分都是Hexo的规范，主题是另一个独立的东西，它决定了页面的样式，但是它跟实际的文章并没有太强的耦合，可以说他们是独立的部分，想要换主题的话，只需要下载一个，然后配置一下就好，以前的文章是不需要有改">
 
 
 
@@ -109,9 +109,9 @@
       author: '博主'
     },
     algolia: {
-      applicationID: '',
+      applicationID: 'ENSRLEKUPE',
       apiKey: '',
-      indexName: '',
+      indexName: 'dev_qizikuai',
       hits: {"per_page":10},
       labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
     }
@@ -126,7 +126,7 @@
 
 
 
-  <title>Hexo-Github搭建博客二【主题】 | Qiqikuai</title>
+  <title>Hexo-Github搭建博客二【主题】 | Qizikuai</title>
   
 
 
@@ -156,7 +156,7 @@
     <div class="custom-logo-site-title">
       <a href="/"  class="brand" rel="start">
         <span class="logo-line-before"><i></i></span>
-        <span class="site-title">Qiqikuai</span>
+        <span class="site-title">Qizikuai</span>
         <span class="logo-line-after"><i></i></span>
       </a>
     </div>
@@ -242,9 +242,47 @@
       
 
       
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
+            
+            搜索
+          </a>
+        </li>
+      
     </ul>
   
 
+  
+    <div class="site-search">
+      
+  
+  <div class="algolia-popup popup search-popup">
+    <div class="algolia-search">
+      <div class="algolia-search-input-icon">
+        <i class="fa fa-search"></i>
+      </div>
+      <div class="algolia-search-input" id="algolia-search-input"></div>
+    </div>
+
+    <div class="algolia-results">
+      <div id="algolia-stats"></div>
+      <div id="algolia-hits"></div>
+      <div id="algolia-pagination" class="algolia-pagination"></div>
+    </div>
+
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+  </div>
+
+
+
+
+    </div>
   
 </nav>
 
@@ -282,7 +320,7 @@
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Qiqikuai">
+      <meta itemprop="name" content="Qizikuai">
     </span>
 
     
@@ -373,10 +411,111 @@
       
 
       
-        <p>#主题的使用</p>
-<p>##next</p>
+        <h1 id="开始"><a href="#开始" class="headerlink" title="开始"></a>开始</h1><p>在<a href="https://hexo.io/themes/" target="_blank" rel="noopener">Hexo-Themes</a>选了好久，最后选了nexT主题，刚开始以为选了主题之后就只能用这个了，但是后来配置完之后发现，并不是这样的，我们的的主要精力是写.md文件。而里面除了Markdown以外的部分都是Hexo的规范，主题是另一个独立的东西，它决定了页面的样式，但是它跟实际的文章并没有太强的耦合，可以说他们是独立的部分，想要换主题的话，只需要下载一个，然后配置一下就好，以前的文章是不需要有改动的。这点是很重要的，而其中的解耦合思想也是很棒的！</p>
+<h1 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h1><p>在 Hexo 中有两份主要的配置文件，其名称都是 _config.yml。 其中，一份位于站点根目录下，主要包含 Hexo 本身的配置；另一份位于主题目录下，这份配置由主题作者提供，主要用于配置主题相关的选项。</p>
+<p>Hexo 安装主题的方式非常简单，只需要将主题文件拷贝至站点目录的 themes 目录下， 然后修改下配置文件即可。</p>
+<h1 id="NexT"><a href="#NexT" class="headerlink" title="NexT"></a>NexT</h1><h2 id="下载"><a href="#下载" class="headerlink" title="下载"></a>下载</h2><p>在这里使用 git clone 的方式，如果以后要更新的话，只需要使用 git pull 就可以将最新的主题代码下载下来。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ <span class="built_in">cd</span> your-hexo-site</span><br><span class="line">$ git <span class="built_in">clone</span> https://github.com/iissnan/hexo-theme-next themes/next</span><br></pre></td></tr></table></figure>
+<h2 id="启用主题"><a href="#启用主题" class="headerlink" title="启用主题"></a>启用主题</h2><p>与所有 Hexo 主题启用的模式一样。 当 克隆/下载 完成后，打开 站点配置文件， 找到 theme 字段，并将其值更改为 next。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">theme: next</span><br></pre></td></tr></table></figure>
+<p>到此，NexT 主题安装完成。简单的一批啊。~。~</p>
+<h2 id="scheme"><a href="#scheme" class="headerlink" title="scheme"></a>scheme</h2><p>Scheme 是 NexT 提供的一种特性，借助于 Scheme，NexT 为你提供多种不同的外观。同时，几乎所有的配置都可以 在 Scheme 之间共用。</p>
+<blockquote>
+<p><em>·</em>Muse - 默认 Scheme，这是 NexT 最初的版本，黑白主调，大量留白<br><em>·</em>Mist - Muse 的紧凑版本，整洁有序的单栏外观<br><em>·</em>Pisces - 双栏 Scheme，小家碧玉似的清新</p>
+</blockquote>
+<h2 id="语言"><a href="#语言" class="headerlink" title="语言"></a>语言</h2><p>编辑 站点配置文件， 将 language 设置成你所需要的语言。建议明确设置你所需要的语言，例如选用简体中文，配置如下：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">language: zh-Hans</span><br></pre></td></tr></table></figure></p>
+<p>目前 NexT 支持的语言如以下表格所示：</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">语言</th>
+<th style="text-align:center">代码</th>
+<th style="text-align:center">设定示例</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">English</td>
+<td style="text-align:center">en</td>
+<td style="text-align:center">language: en</td>
+</tr>
+<tr>
+<td style="text-align:center">简体中文</td>
+<td style="text-align:center">zh-Hans</td>
+<td style="text-align:center">language: zh-Hans</td>
+</tr>
+<tr>
+<td style="text-align:center">Français</td>
+<td style="text-align:center">fr-FR</td>
+<td style="text-align:center">language: fr-FR</td>
+</tr>
+<tr>
+<td style="text-align:center">Português</td>
+<td style="text-align:center">pt</td>
+<td style="text-align:center">language: pt or language: pt-BR</td>
+</tr>
+<tr>
+<td style="text-align:center">繁體中文</td>
+<td style="text-align:center">zh-hk 或者 zh-tw</td>
+<td style="text-align:center">language: zh-hk</td>
+</tr>
+<tr>
+<td style="text-align:center">Русский язык</td>
+<td style="text-align:center">ru</td>
+<td style="text-align:center">language: ru</td>
+</tr>
+<tr>
+<td style="text-align:center">Deutsch</td>
+<td style="text-align:center">de</td>
+<td style="text-align:center">language: de</td>
+</tr>
+<tr>
+<td style="text-align:center">日本語</td>
+<td style="text-align:center">ja</td>
+<td style="text-align:center">language: ja</td>
+</tr>
+<tr>
+<td style="text-align:center">Indonesian</td>
+<td style="text-align:center">id</td>
+<td style="text-align:center">language: id</td>
+</tr>
+<tr>
+<td style="text-align:center">Korean</td>
+<td style="text-align:center">ko</td>
+<td style="text-align:center">language: ko</td>
+</tr>
+</tbody>
+</table>
+<h2 id="Menu-菜单"><a href="#Menu-菜单" class="headerlink" title="Menu 菜单"></a>Menu 菜单</h2><p>设定菜单内容，对应的字段是 menu。 菜单内容的设置格式是：item name: link。其中 item name 是一个名称，这个名称并不直接显示在页面上，她将用于匹配图标以及翻译。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">menu:</span><br><span class="line">  home: /</span><br><span class="line">  archives: /archives</span><br><span class="line">  #about: /about</span><br><span class="line">  #categories: /categories</span><br><span class="line">  tags: /tags</span><br><span class="line">  #commonweal: /404.html</span><br></pre></td></tr></table></figure>
+<h2 id="头像"><a href="#头像" class="headerlink" title="头像"></a>头像</h2><p>编辑 主题配置文件， 修改字段 avatar， 值设置成头像的链接地址。其中，头像的链接地址可以是：</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">地址</th>
+<th style="text-align:center">值</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">完整的互联网 URI</td>
+<td style="text-align:center"><a href="http://example.com/avatar.png" target="_blank" rel="noopener">http://example.com/avatar.png</a></td>
+</tr>
+<tr>
+<td style="text-align:center">站点内的地址</td>
+<td style="text-align:center">将头像放置主题目录下的 source/uploads/ （新建 uploads 目录若不存在） <br>配置为：avatar: /uploads/avatar.png<br>或者 放置在 source/images/ 目录下 <br>配置为：avatar: /images/avatar.png</td>
+</tr>
+</tbody>
+</table>
+<h2 id="代码高亮"><a href="#代码高亮" class="headerlink" title="代码高亮"></a>代码高亮</h2><p>这个真是非常的酷炫，可选的值：normal，night， night blue， night bright， night eighties：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">highlight_theme: normal</span><br></pre></td></tr></table></figure></p>
+<h2 id="侧边栏社交链接"><a href="#侧边栏社交链接" class="headerlink" title="侧边栏社交链接"></a>侧边栏社交链接</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"># Social links</span><br><span class="line">social:</span><br><span class="line">  GitHub: https://github.com/your-user-name</span><br><span class="line">  Twitter: https://twitter.com/your-user-name</span><br><span class="line">  微博: http://weibo.com/your-user-name</span><br><span class="line">  豆瓣: http://douban.com/people/your-user-name</span><br><span class="line">  知乎: http://www.zhihu.com/people/your-user-name</span><br><span class="line">  # 等等</span><br></pre></td></tr></table></figure>
+<h2 id="打赏"><a href="#打赏" class="headerlink" title="打赏"></a>打赏</h2><p>只需要 主题配置文件 中填入 微信 和 支付宝 收款二维码图片地址 即可开启该功能。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">reward_comment: 坚持原创技术分享，您的支持将鼓励我继续创作！</span><br><span class="line">wechatpay: /path/to/wechat-reward-image</span><br><span class="line">alipay: /path/to/alipay-reward-image</span><br></pre></td></tr></table></figure>
+<h2 id="友情链接"><a href="#友情链接" class="headerlink" title="友情链接"></a>友情链接</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"># title</span><br><span class="line">links_title: Links</span><br><span class="line">links:</span><br><span class="line">  MacTalk: http://macshuo.com/</span><br><span class="line">  Title: http://example.com/</span><br></pre></td></tr></table></figure>
+<h2 id="设置「背景动画」"><a href="#设置「背景动画」" class="headerlink" title="设置「背景动画」"></a>设置「背景动画」</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"># canvas_nest</span><br><span class="line">canvas_nest: true //开启动画</span><br><span class="line">canvas_nest: false //关闭动画</span><br><span class="line"></span><br><span class="line"># three_waves</span><br><span class="line">three_waves: true //开启动画</span><br><span class="line">three_waves: false //关闭动画</span><br></pre></td></tr></table></figure>
 <h1 id="感谢"><a href="#感谢" class="headerlink" title="感谢"></a>感谢</h1><ul>
 <li><a href="http://theme-next.iissnan.com/" target="_blank" rel="noopener">http://theme-next.iissnan.com/</a></li>
+<li><a href="https://hexo.io/themes/" target="_blank" rel="noopener">https://hexo.io/themes/</a></li>
 </ul>
 
       
@@ -496,8 +635,12 @@
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
+              <img class="site-author-image" itemprop="image"
+                src="/images/avatar.gif"
+                alt="Qizikuai" />
+            
               <p class="site-author-name" itemprop="name">Qizikuai</p>
-              <p class="site-description motion-element" itemprop="description">Study</p>
+              <p class="site-description motion-element" itemprop="description">Stay hungry Stay foolish</p>
           </div>
 
           <nav class="site-state motion-element">
@@ -562,7 +705,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#感谢"><span class="nav-number">1.</span> <span class="nav-text">感谢</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#开始"><span class="nav-number">1.</span> <span class="nav-text">开始</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#安装"><span class="nav-number">2.</span> <span class="nav-text">安装</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#NexT"><span class="nav-number">3.</span> <span class="nav-text">NexT</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#下载"><span class="nav-number">3.1.</span> <span class="nav-text">下载</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#启用主题"><span class="nav-number">3.2.</span> <span class="nav-text">启用主题</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#scheme"><span class="nav-number">3.3.</span> <span class="nav-text">scheme</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#语言"><span class="nav-number">3.4.</span> <span class="nav-text">语言</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Menu-菜单"><span class="nav-number">3.5.</span> <span class="nav-text">Menu 菜单</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#头像"><span class="nav-number">3.6.</span> <span class="nav-text">头像</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#代码高亮"><span class="nav-number">3.7.</span> <span class="nav-text">代码高亮</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#侧边栏社交链接"><span class="nav-number">3.8.</span> <span class="nav-text">侧边栏社交链接</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#打赏"><span class="nav-number">3.9.</span> <span class="nav-text">打赏</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#友情链接"><span class="nav-number">3.10.</span> <span class="nav-text">友情链接</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#设置「背景动画」"><span class="nav-number">3.11.</span> <span class="nav-text">设置「背景动画」</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#感谢"><span class="nav-number">4.</span> <span class="nav-text">感谢</span></a></li></ol></div>
             
 
           </div>
@@ -647,6 +790,8 @@
   
 
 
+  
+
 
 
 
@@ -685,6 +830,11 @@
   
   
     <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/canvas-nest/canvas-nest.min.js"></script>
   
 
 
@@ -776,6 +926,19 @@
   
 
 
+
+
+  
+  
+  
+  <link rel="stylesheet" href="/lib/algolia-instant-search/instantsearch.min.css">
+
+  
+  
+  <script src="/lib/algolia-instant-search/instantsearch.min.js"></script>
+  
+
+  <script src="/js/src/algolia-search.js?v=5.1.4"></script>
 
 
 
