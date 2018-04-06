@@ -1057,22 +1057,21 @@
 <h1 id="分享-——JiaThis"><a href="#分享-——JiaThis" class="headerlink" title="分享 ——JiaThis"></a>分享 ——JiaThis</h1><h2 id="配置-2"><a href="#配置-2" class="headerlink" title="配置"></a>配置</h2><p>在主题_config.yml中添加下面这行代码，分享功能就添加上了，不得不说作者真的是太用心了。！</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"># JiaThis 分享服务</span><br><span class="line">jiathis: true</span><br></pre></td></tr></table></figure>
 <p>一句话搞定了~~！</p>
-<h2 id="支持https"><a href="#支持https" class="headerlink" title="支持https"></a>支持https</h2><p>开启上面的那个命令是可以开启分享功能，但是它确实http的，并不支持https，所以分享效果很可能失效。</p>
-<p>解决办法是将分享的js文件下载到本地，然后将加载网络js，换成加载本地的js</p>
+<h2 id="支持https"><a href="#支持https" class="headerlink" title="支持https"></a>支持https</h2><p>开启上面的那个命令是可以开启分享功能，但是它却是http的，并不支持https，所以分享效果很可能失效。</p>
+<p>解决办法是将分享的js文件下载到本地，然后将加载网络的js文件改为加载本地的js。</p>
 <p><a href="https://github.com/airbai/JiathisViaHttps" target="_blank" rel="noopener">获取地址</a></p>
-<p>可以直接使用git clone 命令来将文件下载下来。</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">cd 进入目录 themes/next/source/lib</span><br><span class="line">执行 git clone https://github.com/airbai/JiathisViaHttps jiathis</span><br></pre></td></tr></table></figure>
 <p>然后进入jia.js,将codehost替换成自己的username。</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"> codehost: &quot;https://yourname.github.io/lib/jiathis/&quot;,</span><br><span class="line">`</span><br></pre></td></tr></table></figure>
 <p>这样文件就准备好了。</p>
-<p>打开 next/layout/share/jiathis.swig</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">会看到下面这段代码</span><br><span class="line">&lt;/script&gt;</span><br><span class="line">&lt;script type=&quot;text/javascript&quot; src=&quot;/&#123;&#123; theme.vendors._internal &#125;&#125;/jiathis/jia.js?uid=&#123;&#123; theme.jiathis.uid &#125;&#125;&quot; charset=&quot;utf-8&quot;&gt;&lt;/script&gt;</span><br></pre></td></tr></table></figure>
+<p>打开 next/layout/share/jiathis.swig<br>jiathis.swig是分享的相关的配置文件<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">会看到下面这段代码</span><br><span class="line">&lt;/script&gt;</span><br><span class="line">&lt;script type=&quot;text/javascript&quot; src=&quot;http://v3.jiathis.com/code/jia.js?uid=&#123;&#123; theme.jiathis.uid &#125;&#125;&quot; charset=&quot;utf-8&quot;&gt;&lt;/script&gt;</span><br></pre></td></tr></table></figure></p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">将</span><br><span class="line">src=&quot;http://v3.jiathis.com/code/jia.js?uid=&#123;&#123; theme.jiathis.uid &#125;&#125;&quot; </span><br><span class="line">替换成</span><br><span class="line">src=&quot;/&#123;&#123; theme.vendors._internal &#125;&#125;/jiathis/jia.js?uid=&#123;&#123; theme.jiathis.uid &#125;&#125;&quot;</span><br></pre></td></tr></table></figure>
-<p>重新执行<br>hexo clean<br>hexo g -d<br>完成代码在远程库的部署</p>
-<p>再执行 hexo s 本地就可以看到分享的效果了</p>
+<p>重新执行<br>hexo clean<br>hexo g -d<br>完成代码在远程库的部署，这时打开网站就能看到分享效果了。</p>
+<p>再执行 hexo s 本地就可以看到分享的效果了（执行hexo s 之前一定先执行上面的部署）</p>
 <p>大功告成。</p>
-<h2 id="问题"><a href="#问题" class="headerlink" title="问题"></a>问题</h2><p>由于上面下载的这个代码已经是6年前的了，所以样式比较旧，而且没有微信分享</p>
-<p>看看想办法将上面下载的这个文件，结合最新的分享，修改一下。</p>
+<p>上面的操作看似东西不多，但是我从上午11点弄到下午3点才算是完事，中期最费时间的应该是jia.js（支持分享的文件）然后调试，在jiathis官网<a href="http://v3.jiathis.com/code_mini/jia.js" target="_blank" rel="noopener">下载</a>的jia.js是乱码的，真的很是烦呀。去各种网站下载的jia.js也都用不了，因为它们版本都太老。里面依赖的一些css文件v3.jiathis.com上都没有了，所以要把一整套东西搬过来。然后还有一个比较费时的是jiathis.swig引用本地js的调试，废了好大劲才弄好，不过感觉这个过程中学到很多东西。最最重要的是我一直没有放弃，早晚给它搞了出来，哈哈，爽！！！！</p>
+<h2 id="问题"><a href="#问题" class="headerlink" title="问题"></a>问题</h2><p>由于上面下载的这个代码已经是6年前的了，所以样式比较旧，而且没有微信分享。</p>
+<p>想办法将上面下载的这个文件，结合最新的分享，修改一下。</p>
 <h2 id="感谢-2"><a href="#感谢-2" class="headerlink" title="感谢"></a>感谢</h2><ul>
 <li><a href="https://github.com/airbai/JiathisViaHttps" target="_blank" rel="noopener">https://github.com/airbai/JiathisViaHttps</a></li>
 </ul>
