@@ -1035,6 +1035,7 @@
 <p>将youruid复制出来。<br>打开主题的_config.yml，将your livere_uid替换成刚才获取的youruid</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">livere_uid: your livere_uid</span><br></pre></td></tr></table></figure>
 <p>配置的过程就是这么简单。</p>
+<h2 id="隐藏"><a href="#隐藏" class="headerlink" title="隐藏"></a>隐藏</h2><p>页面/文章 的评论，在 md 文件的 front-matter(就是写title的那部分)中增加 comments: false。</p>
 <h2 id="总结-1"><a href="#总结-1" class="headerlink" title="总结"></a>总结</h2><h3 id="问题1"><a href="#问题1" class="headerlink" title="问题1"></a>问题1</h3><p>我在配置的好之后发现评论并没有展示出来，导致我熬夜找这个问题，最后实在不想熬了就睡了，但是隐隐的知道是哪的问题了。<br>早晨起来我就打开了电脑，翻出了来必力设置的一段代码，这段代码的位置是：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">/themes/next/layout/_third-party/comments/livere.swig</span><br></pre></td></tr></table></figure></p>
 <p>代码：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">&#123;% if not (theme.duoshuo and theme.duoshuo.shortname) </span><br><span class="line">    and not theme.duoshuo_shortname </span><br><span class="line">    and not (theme.disqus.enable and theme.disqus.shortname) </span><br><span class="line">    and not theme.hypercomments_id %&#125;</span><br><span class="line"></span><br><span class="line">  &#123;% if page.comments and theme.livere_uid %&#125;</span><br><span class="line">    &lt;script type=&quot;text/javascript&quot;&gt;</span><br><span class="line">      (function(d, s) &#123;</span><br><span class="line">        var j, e = d.getElementsByTagName(s)[0];</span><br><span class="line">        if (typeof LivereTower === &apos;function&apos;) &#123; return; &#125;</span><br><span class="line">        j = d.createElement(s);</span><br><span class="line">        j.src = &apos;https://cdn-city.livere.com/js/embed.dist.js&apos;;</span><br><span class="line">        j.async = true;</span><br><span class="line">        e.parentNode.insertBefore(j, e);</span><br><span class="line">      &#125;)(document, &apos;script&apos;);</span><br><span class="line">    &lt;/script&gt;</span><br><span class="line">  &#123;% endif %&#125;</span><br><span class="line"></span><br><span class="line">&#123;% endif %&#125;</span><br></pre></td></tr></table></figure>
@@ -1188,8 +1189,6 @@
             </span>
           
 
-          
-            
           
 
           
