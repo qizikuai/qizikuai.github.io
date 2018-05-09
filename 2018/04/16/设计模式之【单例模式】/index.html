@@ -1,0 +1,947 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="技术,设计模式," />
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="开始当程序运行时，通常会存在很多类的很多实例，单个类的实例也会很多。就像表示字符串的String类的实例与字符串是一对一的关系，所以当有100个字符串的时候，也就有100个String的实例。 但是，当我们想在程序中表示某个东西只会存在一个时，就会有“只创建一个实例”的需求。例如，表示我们的程序运行的这台计算机，它为我们程序的运行提供了大环境，同时也提供了各种系统级的参数。如果在我们的程序运行时，">
+<meta name="keywords" content="技术,设计模式">
+<meta property="og:type" content="article">
+<meta property="og:title" content="设计模式之【单例模式】">
+<meta property="og:url" content="https://qizikuai.github.io/2018/04/16/设计模式之【单例模式】/index.html">
+<meta property="og:site_name" content="Qizikuai">
+<meta property="og:description" content="开始当程序运行时，通常会存在很多类的很多实例，单个类的实例也会很多。就像表示字符串的String类的实例与字符串是一对一的关系，所以当有100个字符串的时候，也就有100个String的实例。 但是，当我们想在程序中表示某个东西只会存在一个时，就会有“只创建一个实例”的需求。例如，表示我们的程序运行的这台计算机，它为我们程序的运行提供了大环境，同时也提供了各种系统级的参数。如果在我们的程序运行时，">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2018-04-17T15:14:25.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="设计模式之【单例模式】">
+<meta name="twitter:description" content="开始当程序运行时，通常会存在很多类的很多实例，单个类的实例也会很多。就像表示字符串的String类的实例与字符串是一对一的关系，所以当有100个字符串的时候，也就有100个String的实例。 但是，当我们想在程序中表示某个东西只会存在一个时，就会有“只创建一个实例”的需求。例如，表示我们的程序运行的这台计算机，它为我们程序的运行提供了大环境，同时也提供了各种系统级的参数。如果在我们的程序运行时，">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: 'ENSRLEKUPE',
+      apiKey: 'fef55e7cebdd11acd44b9a99865d04c7',
+      indexName: 'dev_qizikuai',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="https://qizikuai.github.io/2018/04/16/设计模式之【单例模式】/"/>
+
+
+
+
+
+  <title>设计模式之【单例模式】 | Qizikuai</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Qizikuai</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-abc">
+          <a href="/abc" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-question-circle"></i> <br />
+            
+            abc
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
+            
+            搜索
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  
+  <div class="algolia-popup popup search-popup">
+    <div class="algolia-search">
+      <div class="algolia-search-input-icon">
+        <i class="fa fa-search"></i>
+      </div>
+      <div class="algolia-search-input" id="algolia-search-input"></div>
+    </div>
+
+    <div class="algolia-results">
+      <div id="algolia-stats"></div>
+      <div id="algolia-hits"></div>
+      <div id="algolia-pagination" class="algolia-pagination"></div>
+    </div>
+
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+  </div>
+
+
+
+
+    </div>
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://qizikuai.github.io/2018/04/16/设计模式之【单例模式】/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Qizikuai">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Qizikuai">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">设计模式之【单例模式】</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-04-16T23:10:36+08:00">
+                2018-04-16
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/技术/" itemprop="url" rel="index">
+                    <span itemprop="name">技术</span>
+                  </a>
+                </span>
+
+                
+                
+                  ， 
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/技术/设计模式/" itemprop="url" rel="index">
+                    <span itemprop="name">设计模式</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+            <span class="post-meta-divider">|</span>
+            <span class="page-pv"><i class="fa fa-eye"> 阅读次数:</i>
+            <span class="busuanzi-value" id="busuanzi_value_page_pv" ></span>
+            </span>
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h1 id="开始"><a href="#开始" class="headerlink" title="开始"></a>开始</h1><p>当程序运行时，通常会存在很多类的很多实例，单个类的实例也会很多。就像表示字符串的String类的实例与字符串是一对一的关系，所以当有100个字符串的时候，也就有100个String的实例。</p>
+<p>但是，当我们想在程序中表示某个东西只会存在一个时，就会有“只创建一个实例”的需求。例如，表示我们的<br>程序运行的这台计算机，它为我们程序的运行提供了大环境，同时也提供了各种系统级的参数。如果在我们的程序运行时，生成了很多个表示计算机的类，那么程序的行为很可能不统一，相同的操作会出现差异性。一个更好的例子是表示视窗系统（window System）的对象，在一个电脑或者一个手机上，只有一个屏幕，我们想操作屏幕去显示一些内容的时候，就会去操作这个视窗对象，而如果每当想显示一些东西就创建一个新的视窗对象的话，屏幕总是处于初始化——显示——初始化——显示的循环，这样就会像放电影一样闪烁；同时如果旧的视窗对象得不到很好的回收，很快就会内存溢出，哪怕是回收做的很好也会因为相当频繁的创建对象，内存中会存在很多这样的视窗对象而导致内存溢出，因为视窗对象含有的数据量很大。</p>
+<h1 id="意图"><a href="#意图" class="headerlink" title="意图"></a>意图</h1><blockquote>
+<p>想确保任何情况下都绝对只有1个实例<br>想在程序上表现出“只存在一个实例”</p>
+</blockquote>
+<p>其实解决这个问题也很好办，在我们程序的全局对象中，使用一个静态变量来保存想要单例对象的引用，程序中需要这个对象的时候来这个全局对象取，这样就确保了只调用一次 new MySingletonClass()，从而实现了单例。但是这样一来单例的维护就交给了这个全局的对象，而很多时候这个单例的类并不只是我们自己的程序在用，很可能它是一个给很多人使用的类库中的类，这样每个使用它的程序或者程序猿都要刻意的去为它营造一个单例的环境，想想也是很不方便的。</p>
+<p>在我开发的过程中遇到过一个例子，那就是购物车的设计，在我接手那个工程的时候，业务上存在购物车的概念，但是代码上并没有购物车的概念，它的实现方式是在全局的application对象中，保存一个List&lt;&gt;,一个Map&lt;&gt;,代码中需要操作购物车的时候就来操作这两个集合类，代码显得极其的杂乱。虽然它也有单例的思想，但是它的实现方式就比较糟糕了。于是我将购物车重构了，首先建立一个ShopingCar类，让它去持有List&lt;&gt;,Map&lt;&gt;等保存物品的集合类对象。并且对外提供各种操作购物车的方法，如添加、移除、修改、或是查找，这些操作都有专门的方法来负责，也就是说以前在代码各处都操作List&lt;&gt;,Map&lt;&gt;并存在各种对它们的for循环和if判断,而现在变成了单纯的调用ShoppingCar提供的方法就好，这块的代码一下子就整洁了很多！</p>
+<p>但是上面说的这些好像并没有涉及到单例模式呀。但是你想购物车是不是只应该有一个呢？类比一下去超市买东西就很好理解。于是这个ShoppingCar就是一个单例的，那么单例是如何实现的呢，下面就会介绍到。</p>
+<h1 id="定义"><a href="#定义" class="headerlink" title="定义"></a>定义</h1><blockquote>
+<p>单例模式涉及到一个单一的类，<strong>该类负责创建自己的对象</strong>，同时确保只有单个对象被创建。这个类提供了一种访问其唯一的对象的方式，可以直接访问，外部不需要实例化该类的对象。</p>
+</blockquote>
+<p>很好理解吧，还是以ShoppingCar为例，它不仅提供给我们操作购物车商品的方法，还提供给我们获取它的对象的方法，我们根本不用去为它的单例化而操心，它自己就会处理这个问题，是不是很方便呢，业务逻辑中不用关心这种底层的支持。那么它应该怎样实现呢。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">ShoppingCar</span></span>&#123;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> ShoppingCar singleton = <span class="keyword">new</span> ShoppingCar();</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">private</span> <span class="title">ShoppingCar</span><span class="params">()</span></span>&#123;</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> ShoppingCar <span class="title">getInstance</span><span class="params">()</span></span>&#123;</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">void</span> clear（）&#123;</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">addShop</span><span class="params">()</span></span>&#123;</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">removeShop</span><span class="params">()</span></span>&#123;</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">//...</span></span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>首先构造方法是private修饰的，表示外部不可能通过new ShoppingCar()的形式获取到它的对象。想想也是，如果能通过new Singleton()的方式获取到实例，那还讲什么单例，实例对象肯定到处都是。</p>
+<p>然后定义一个static修饰的singleton实例，表示对象的持有者是类，而非具体的对象。想想也是，没有必要让ShoppingCar类的对象再去持有一个ShoppingCar的对象。</p>
+<p>同时它也是private修饰的，这就表示这个对象是私有的，并不能通过Singleton.singleton的形式去获取它。想想也是，如果能通过Singleton.singleton这样的形式引用到它，就可以修改它，甚至让它 “=null”</p>
+<p>最后提供了一个public static的getInstance()方法，这就是全局访问点，想要获取ShoppingCar类的对象也只有这么一种途径。</p>
+<h1 id="特点"><a href="#特点" class="headerlink" title="特点"></a>特点</h1><ol>
+<li>单例类只能有一个实例。</li>
+<li>单例类必须自己创建自己的唯一实例。</li>
+<li>单例类必须给所有其他对象提供这一实例。</li>
+</ol>
+<h1 id="实现"><a href="#实现" class="headerlink" title="实现"></a>实现</h1><h3 id="懒汉模式，线程不安全"><a href="#懒汉模式，线程不安全" class="headerlink" title="懒汉模式，线程不安全"></a>懒汉模式，线程不安全</h3><p>所谓懒汉模式，就是懒嘛，不到用的时候我是不会创建对象的，于是就在getInstance()方法中创建对象。但是这种方式是线程不安全的，为什么这么说呢，因为如果在多线程应用中有两处或多处都调到了getInstance()方法，而恰好执行到if (instance == null)方法的时候CPU交给了下一个线程，这样在这个线程交出CPU使用空间的时候，括号中的判断是true，也就是说instance是null，而下一个线程也会有同样的问题，然后每一个线程获取到CPU时间片的时候，就会生成一个新的instance，这就导致了可能出现多个instance对象的局面。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Singleton</span> </span>&#123;  </span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> Singleton instance;  </span><br><span class="line">    <span class="function"><span class="keyword">private</span> <span class="title">Singleton</span> <span class="params">()</span></span>&#123;&#125;  </span><br><span class="line">  </span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> Singleton <span class="title">getInstance</span><span class="params">()</span> </span>&#123;  </span><br><span class="line">        <span class="keyword">if</span> (instance == <span class="keyword">null</span>) &#123;  </span><br><span class="line">            instance = <span class="keyword">new</span> Singleton();  </span><br><span class="line">        &#125;  </span><br><span class="line">        <span class="keyword">return</span> instance;  </span><br><span class="line">    &#125;  </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="懒汉模式，线程安全"><a href="#懒汉模式，线程安全" class="headerlink" title="懒汉模式，线程安全"></a>懒汉模式，线程安全</h3><p>这种方式具备很好的 lazy loading 特性，能够在多线程中很好的工作，但是效率低，因为99% 情况下不需要同步。优点是第一次调用才初始化，避免内存浪费。缺点是必须加锁 synchronized 才能保证单例，但加锁会影响效率。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Singleton</span> </span>&#123;  </span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> Singleton instance;  </span><br><span class="line">    <span class="function"><span class="keyword">private</span> <span class="title">Singleton</span> <span class="params">()</span></span>&#123;&#125;  </span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">synchronized</span> Singleton <span class="title">getInstance</span><span class="params">()</span> </span>&#123;  </span><br><span class="line">        <span class="keyword">if</span> (instance == <span class="keyword">null</span>) &#123;  </span><br><span class="line">            instance = <span class="keyword">new</span> Singleton();  </span><br><span class="line">        &#125;  </span><br><span class="line">        <span class="keyword">return</span> instance;  </span><br><span class="line">    &#125;  </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="饿汉模式"><a href="#饿汉模式" class="headerlink" title="饿汉模式"></a>饿汉模式</h3><p>所谓饿汉模式，就是说我已经饿的够呛了，还管你这些事呢，先生成一个对象再说，管你用不用的。<br>没有加锁，执行效率会提高。缺点就是类加载时就初始化对象浪费内存。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Singleton</span> </span>&#123;  </span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> Singleton instance = <span class="keyword">new</span> Singleton();  </span><br><span class="line">    <span class="function"><span class="keyword">private</span> <span class="title">Singleton</span> <span class="params">()</span></span>&#123;&#125;  </span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> Singleton <span class="title">getInstance</span><span class="params">()</span> </span>&#123;  </span><br><span class="line">        <span class="keyword">return</span> instance;  </span><br><span class="line">    &#125;  </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="双重检查锁定"><a href="#双重检查锁定" class="headerlink" title="双重检查锁定"></a>双重检查锁定</h3><p>这种方式采用双锁机制，安全且在多线程情况下能保持高性能。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Singleton</span> </span>&#123;  </span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">volatile</span> <span class="keyword">static</span> Singleton singleton;  </span><br><span class="line">    <span class="function"><span class="keyword">private</span> <span class="title">Singleton</span> <span class="params">()</span></span>&#123;&#125;  </span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> Singleton <span class="title">getSingleton</span><span class="params">()</span> </span>&#123;  </span><br><span class="line">        <span class="keyword">if</span> (singleton == <span class="keyword">null</span>) &#123;  </span><br><span class="line">            <span class="keyword">synchronized</span> (Singleton.class) &#123;  </span><br><span class="line">                <span class="keyword">if</span> (singleton == <span class="keyword">null</span>) &#123;  </span><br><span class="line">                    singleton = <span class="keyword">new</span> Singleton();  </span><br><span class="line">                &#125;  </span><br><span class="line">            &#125;  </span><br><span class="line">        &#125;  </span><br><span class="line">        <span class="keyword">return</span> singleton;  </span><br><span class="line">    &#125;  </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="登记式-静态内部类"><a href="#登记式-静态内部类" class="headerlink" title="登记式/静态内部类"></a>登记式/静态内部类</h3><p>这种方式将instance的生成延缓到了加载内部类的时候，也就是说Singleton的对象生成是在加载SingletonHolder时生成的，而SingletonHolder的加载是在getInstance()方法中，也就是说，instance的生成时机就是在需要它的时候。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Singleton</span> </span>&#123;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> <span class="class"><span class="keyword">class</span> <span class="title">SingletonHolder</span> </span>&#123;</span><br><span class="line">        <span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">final</span> Singleton INSTANCE = <span class="keyword">new</span> Singleton(); </span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">private</span> <span class="title">Singleton</span> <span class="params">()</span></span>&#123;&#125;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">final</span> Singleton <span class="title">getInstance</span><span class="params">()</span> </span>&#123; </span><br><span class="line">        <span class="keyword">return</span> SingletonHolder.INSTANCE;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="枚举"><a href="#枚举" class="headerlink" title="枚举"></a>枚举</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">enum</span> Singleton &#123;</span><br><span class="line">    INSTANCE;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">whateverMethod</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    &#125;  </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h1 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h1><p>一般情况下，不建议使用第 1 种和第 2 种懒汉方式，建议使用第 3 种饿汉方式。只有在要明确实现 lazy loading 效果时，才会使用第 5 种登记方式。如果涉及到反序列化创建对象时，可以尝试使用第 6 种枚举方式。如果有其他特殊的需求，可以考虑使用第 4 种双检锁方式。</p>
+<h1 id="感谢"><a href="#感谢" class="headerlink" title="感谢"></a>感谢</h1><p>《图解设计模式》<br>《大话设计模式》<br>《设计模式之禅》<br>《Head First设计模式》</p>
+<hr>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/技术/" rel="tag"># 技术</a>
+          
+            <a href="/tags/设计模式/" rel="tag"># 设计模式</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/04/14/予与求/" rel="next" title="予与求">
+                <i class="fa fa-chevron-left"></i> 予与求
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2018/04/20/健身笔记1/" rel="prev" title="健身笔记1">
+                健身笔记1 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+        <!-- JiaThis Button BEGIN -->
+<div class="jiathis_style">
+<span class="jiathis_txt">分享到：</span>
+<a class="jiathis_button_fav">收藏夹</a>
+<a class="jiathis_button_copy">复制网址</a>
+<a class="jiathis_button_email">邮件</a>
+<a class="jiathis_button_weixin">微信</a>
+<a class="jiathis_button_qzone">QQ空间</a>
+<a class="jiathis_button_tqq">腾讯微博</a>
+<a class="jiathis_button_douban">豆瓣</a>
+<a class="jiathis_button_share">一键分享</a>
+
+<a href="http://www.jiathis.com/share?uid=2140465" class="jiathis jiathis_txt jiathis_separator jtico jtico_jiathis" target="_blank">更多</a>
+<a class="jiathis_counter_style"></a>
+</div>
+<script type="text/javascript" >
+var jiathis_config={
+  data_track_clickback:true,
+  summary:"",
+  shortUrl:false,
+  hideMore:false
+}
+</script>
+<script type="text/javascript" src="/lib/jiathis/jia.js?uid=" charset="utf-8"></script>
+<!-- JiaThis Button END -->
+
+<!-- http://v3.jiathis.com/code/jia.js-->
+
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+    <div class="comments" id="comments">
+      <div id="lv-container" data-id="city" data-uid="MTAyMC8zNTQ5OS8xMjAzNQ=="></div>
+    </div>
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="/images/avatar.gif"
+                alt="Qizikuai" />
+            
+              <p class="site-author-name" itemprop="name">Qizikuai</p>
+              <p class="site-description motion-element" itemprop="description">Stay hungry Stay foolish</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">45</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">24</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">32</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+
+          
+
+          
+          
+
+          
+          
+            <div class="links-of-blogroll motion-element links-of-blogroll-block">
+              <div class="links-of-blogroll-title">
+                <i class="fa  fa-fw fa-link"></i>
+                Links
+              </div>
+              <ul class="links-of-blogroll-list">
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="http://metaspace.top/" title="Metaspace" target="_blank">Metaspace</a>
+                  </li>
+                
+              </ul>
+            </div>
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#开始"><span class="nav-number">1.</span> <span class="nav-text">开始</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#意图"><span class="nav-number">2.</span> <span class="nav-text">意图</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#定义"><span class="nav-number">3.</span> <span class="nav-text">定义</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#特点"><span class="nav-number">4.</span> <span class="nav-text">特点</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#实现"><span class="nav-number">5.</span> <span class="nav-text">实现</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#懒汉模式，线程不安全"><span class="nav-number">5.0.1.</span> <span class="nav-text">懒汉模式，线程不安全</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#懒汉模式，线程安全"><span class="nav-number">5.0.2.</span> <span class="nav-text">懒汉模式，线程安全</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#饿汉模式"><span class="nav-number">5.0.3.</span> <span class="nav-text">饿汉模式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#双重检查锁定"><span class="nav-number">5.0.4.</span> <span class="nav-text">双重检查锁定</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#登记式-静态内部类"><span class="nav-number">5.0.5.</span> <span class="nav-text">登记式/静态内部类</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#枚举"><span class="nav-number">5.0.6.</span> <span class="nav-text">枚举</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#总结"><span class="nav-number">6.</span> <span class="nav-text">总结</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#感谢"><span class="nav-number">7.</span> <span class="nav-text">感谢</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2018</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Qizikuai</span>
+
+  
+</div>
+
+
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Pisces</a> v5.1.4</div>
+
+
+
+
+        
+<div class="busuanzi-count">
+  <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+    <span class="site-uv">
+      <i class="fa fa-user">本站访客数</i>
+      <span class="busuanzi-value" id="busuanzi_value_site_uv"></span>
+      人次
+    </span>
+  
+
+  
+    <span class="site-pv">
+      <i class="fa fa-eye">本站总访问量</i>
+      <span class="busuanzi-value" id="busuanzi_value_site_pv"></span>
+      次
+    </span>
+  
+</div>
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/canvas-nest/canvas-nest.min.js"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.4"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+    <script type="text/javascript">
+      (function(d, s) {
+        var j, e = d.getElementsByTagName(s)[0];
+        if (typeof LivereTower === 'function') { return; }
+        j = d.createElement(s);
+        j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+        j.async = true;
+        e.parentNode.insertBefore(j, e);
+      })(document, 'script');
+    </script>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+  
+  
+  
+  <link rel="stylesheet" href="/lib/algolia-instant-search/instantsearch.min.css">
+
+  
+  
+  <script src="/lib/algolia-instant-search/instantsearch.min.js"></script>
+  
+
+  <script src="/js/src/algolia-search.js?v=5.1.4"></script>
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
